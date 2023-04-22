@@ -9,7 +9,6 @@ def crear_matriz(filas, columnas, valores):
         raise ValueError("La cantidad de valores no coincide con el tamaño de la matriz")
 
     matriz = []
-    indice_valor = 0
     for i in range(filas):
         fila = []
         for j in range(columnas):
