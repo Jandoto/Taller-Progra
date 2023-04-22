@@ -1,3 +1,9 @@
+ABC="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+matrices=[]
+for i in range (len(ABC)):
+    matrices.append("NULL")
+print(matrices)
+
 def crear_matriz(filas, columnas, valores):
     if len(valores) != filas * columnas:
         raise ValueError("La cantidad de valores no coincide con el tamaño de la matriz")
@@ -27,7 +33,7 @@ def sumar_matrices(A,B):
 valores = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 matriz_3x3 = crear_matriz(3, 3, valores)
 matriz_3x32 = crear_matriz(3, 3, valores)
-print(sumar_matrices(matriz_3x3,matriz_3x32))
-
+x=sumar_matrices(matriz_3x3,matriz_3x32)
+print(F[0])
 print("Matriz 3x3 con valores secuenciales:")
 print(matriz_3x3[1][1])
