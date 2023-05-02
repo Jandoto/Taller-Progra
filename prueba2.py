@@ -79,6 +79,7 @@ class Matrix:
                                 almacenado=resultado
                                 resultado = ""
                             else:
+                                
                                 pass
 
                         resultado += caracter
