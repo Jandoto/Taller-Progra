@@ -1,38 +1,41 @@
-ABC="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-matrices=[]
-for i in range (len(ABC)):
-    matrices.append("NULL")
-print(matrices)
+def separar_letras_numeros(texto):
+    resultados = []
 
-def crear_matriz(filas, columnas, valores):
-    if len(valores) != filas * columnas:
-        raise ValueError("La cantidad de valores no coincide con el tamaño de la matriz")
+    for elemento in texto:
+        numero = ""
+        letra = ""
 
-    matriz = []
-    for i in range(filas):
-        fila = []
-        for j in range(columnas):
-            fila.append(valores[indice_valor])
-            indice_valor += 1
-        matriz.append(fila)
-    return matriz
+        ultimo_tipo = None
+        for caracter in elemento:
+            tipo_actual = None
 
-def sumar_matrices(A,B):
-    if len(A[0]) != len(B[0]):
-        raise ValueError("Las matrices no son posibles de sumarse")
-    C=[]
-    for i in range(len(A)):
-        aux1=[]
-        for j in range(len(A[0])):
-            aux2=A[i][j]+B[i][j]
-            aux1.append(aux2)
-        C.append(aux1)
-    return C
+            if caracter.isdigit():
+                tipo_actual = "numero"
+            elif caracter.isalpha():
+                tipo_actual = "letra"
 
-valores = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-matriz_3x3 = crear_matriz(3, 3, valores)
-matriz_3x32 = crear_matriz(3, 3, valores)
-x=sumar_matrices(matriz_3x3,matriz_3x32)
-print(F[0])
-print("Matriz 3x3 con valores secuenciales:")
-print(matriz_3x3[1][1])
+            if ultimo_tipo and ultimo_tipo != tipo_actual:
+                if tipo_actual == "numero":
+                    numero = ""
+                elif tipo_actual == "letra":
+                    letra = ""
+
+            if tipo_actual == "numero":
+                numero += caracter
+            elif tipo_actual == "letra":
+                letra += caracter
+
+            ultimo_tipo = tipo_actual
+
+        if letra and not numero:
+            numero = "1"
+
+        resultados.append((letra, numero))
+
+    return resultados
+
+
+texto = ["A1", "12B", "C"]
+resultados = separar_letras_numeros(texto)
+print(resultados[1][0])
+print(len(resultados))

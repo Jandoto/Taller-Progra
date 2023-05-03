@@ -59,6 +59,7 @@ class Matrix:
                     auxa.append(0)
                     auxb.append(0)
                 valor=self.matriz[i][j]
+                print(valor)
                 valor=valor.replace(" ","")
                 valor=valor.split("+")
                 for c in range (len(valor)):
@@ -72,14 +73,12 @@ class Matrix:
                             tipo_actual = "letra"
                         if ultimo_tipo and ultimo_tipo != tipo_actual:
                             if tipo_actual == "numero":
-                                print(resultado,"PRIMERO")
                                 almacenado=resultado
                                 resultado = ""
                             elif tipo_actual == "letra":
                                 almacenado=resultado
                                 resultado = ""
                             else:
-                                
                                 pass
 
                         resultado += caracter
@@ -95,9 +94,6 @@ class Matrix:
                     print(auxa,"aaaaaaaaaa")
                 
         return 12
-        
-
-        
     
     def __mul__(self, b):
         if self.z != b.y:
@@ -117,6 +113,7 @@ class Matrix:
             for i in range(self.y):
                 valores.append(self.matriz[i][j])
         return Matrix(valores, self.z, self.y)
+
     
 ABC = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 matrices = []
